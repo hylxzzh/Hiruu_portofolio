@@ -55,7 +55,7 @@ export default function Home() {
     
     {/* Tag foto profil kamu */}
     <img 
-      src="/foto-profil.jpg" 
+      src="\hiruuu\public\foto_profile.jpg" 
       alt="Foto Profil" 
       className="w-full h-full object-cover"
     />
@@ -232,9 +232,7 @@ export default function Home() {
             </div>
           </div>
         </section>
-
       </div>
-
       {/* FOOTER */}
       <footer className="text-center py-8 text-xs text-slate-600 border-t border-slate-900 mt-12">
         © 2026 Your Name. All rights reserved.
