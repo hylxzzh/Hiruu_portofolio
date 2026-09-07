@@ -46,6 +46,7 @@ export default function Home() {
               <a href="#" className="hover:text-blue-500 transition">✉️</a>
             </div>
           </div>
+          </section>
 
           {/* Profile Image Frame */}
 <div className="lg:col-span-5 flex justify-center">
