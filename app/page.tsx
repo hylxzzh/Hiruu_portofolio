@@ -87,7 +87,7 @@ export default function Home() {
     <div className="relative w-full max-w-sm aspect-[4/5] rounded-2xl overflow-hidden border-2 border-blue-500/30 bg-slate-900/50 shadow-2xl shadow-blue-500/10">
       <div className="absolute inset-0 bg-gradient-to-t from-[#080808] via-transparent to-transparent z-10 opacity-60"></div>
       <img 
-        src="\public\foto\hylman.jpg" 
+        src="foto_profile.jpg" 
         alt="Hiruu Profile" 
         className="w-full h-full object-cover"
       />
