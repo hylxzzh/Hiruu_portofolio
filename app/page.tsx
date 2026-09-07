@@ -89,7 +89,7 @@ export default function Home() {
               <h1 className="font-cursive text-7xl sm:text-8xl lg:text-9xl text-amber-200 font-normal leading-none drop-shadow-[0_2px_10px_rgba(217,119,6,0.15)]">
                 Hiruu
               </h1>
-              <h2 className="font-cursive text-3xl sm:text-4xl text-amber-100/70 tracking-wide font-normal -mt-2">
+              <h2 className="font-light text-3xl sm:text-4xl text-amber-100/70 tracking-wide font-normal -mt-2">
                 IT & Network Engineer
               </h2>
             </div>
@@ -339,7 +339,7 @@ export default function Home() {
                 <input type="text" placeholder="Subject" className="w-full bg-[#0c0c0a] border border-amber-900/30 rounded-lg p-3 text-xs text-amber-100 placeholder:text-zinc-600 focus:outline-none focus:border-amber-500/50 font-light" />
                 <textarea rows={4} placeholder="Your Message" className="w-full bg-[#0c0c0a] border border-amber-900/30 rounded-lg p-3 text-xs text-amber-100 placeholder:text-zinc-600 focus:outline-none focus:border-amber-500/50 font-light"></textarea>
                 <button type="button" className="px-6 py-2.5 border border-amber-500/40 text-amber-200 rounded-lg text-xs hover:bg-amber-500/10 transition">
-                  <span className="font-cursive text-xl">Send Message</span> →
+                  <span className="font-light text-xl">Send Message</span> →
                 </button>
               </form>
             </div>
@@ -347,7 +347,7 @@ export default function Home() {
         </section>
 
         {/* FOOTER */}
-        <footer className="text-center py-8 text-[11px] text-zinc-600 border-t border-amber-900/20 font-light tracking-wider">
+        <footer className="text-center py-8 text-[11px] text-zinc-600 border-t border-amber-900/20 font-cursive tracking-wider">
           © 2026 Hiruu. All rights reserved.
         </footer>
 
