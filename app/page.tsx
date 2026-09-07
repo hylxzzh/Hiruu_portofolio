@@ -5,11 +5,10 @@ import React, { useState, useEffect } from 'react';
 export default function Home() {
   // Array foto di folder public/
   const profileImages = [
-    '/profile.jpg',
-    '/profile2.jpg',
-    '/profile3.jpg',
+    '/foto_profile/profile1.jpg',
+    '/foto_profile/profile2.jpg',
+    '/foto_profile/profile3.jpg',
   ];
-
   const [currentIndex, setCurrentIndex] = useState(0);
 
   // Auto slide setiap 4 detik
