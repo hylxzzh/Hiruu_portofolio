@@ -23,10 +23,10 @@ export default function Home() {
           <div className="lg:col-span-7 space-y-6">
             <p className="text-blue-500 font-semibold tracking-widest text-sm uppercase">HELLO, I'M</p>
             <h1 className="text-5xl lg:text-7xl font-extrabold text-white tracking-tight">
-              YOUR NAME
+              Hiruu.
             </h1>
             <h2 className="text-2xl lg:text-3xl font-bold text-blue-500">
-              IT & NETWORK ENTHUSIAST
+              IT & NETWORK ENGINEER
             </h2>
             <p className="text-slate-400 text-base leading-relaxed max-w-xl">
               Passionate about technology, networking, hardware engineering, and building digital solutions that make an impact.
