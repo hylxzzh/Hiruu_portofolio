@@ -18,49 +18,84 @@ export default function Home() {
 
       <div className="max-w-6xl mx-auto px-6 py-12 space-y-20">
         
-        {/* HERO SECTION */}
-        <section id="home" className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center pt-4">
-          <div className="lg:col-span-7 space-y-6">
-            <p className="text-blue-500 font-semibold tracking-widest text-sm uppercase">HELLO, I'M</p>
-            <h1 className="text-5xl lg:text-7xl font-extrabold text-white tracking-tight">
-              Hiruu.
-            </h1>
-            <h2 className="text-2xl lg:text-3xl font-bold text-blue-500">
-              IT & NETWORK ENGINEER
-            </h2>
-            <p className="text-slate-400 text-base leading-relaxed max-w-xl">
-              Passionate about technology, networking, hardware engineering, and building digital solutions that make an impact.
-            </p>
-            
-            <div className="pt-2">
-              <a href="#projects" className="inline-flex items-center gap-2 px-6 py-3 border border-blue-500/50 rounded-lg text-blue-400 hover:bg-blue-500/10 transition font-medium text-sm">
-                VIEW MY WORK <span>→</span>
-              </a>
-            </div>
-
-            {/* Social Icons */}
-            <div className="flex gap-5 pt-4 text-slate-400 text-xl">
-              <a href="#" className="hover:text-blue-500 transition">🐙</a>
-              <a href="#" className="hover:text-blue-500 transition">💼</a>
-              <a href="#" className="hover:text-blue-500 transition">📷</a>
-              <a href="#" className="hover:text-blue-500 transition">✉️</a>
-            </div>
-          </div>
-          </section>
-
-          {/* Profile Image Frame */}
-<div className="lg:col-span-5 flex justify-center">
-  <div className="relative w-full max-w-sm aspect-[4/5] rounded-2xl overflow-hidden border-2 border-blue-500/30 bg-slate-900/50 shadow-2xl shadow-blue-500/10">
-    <div className="absolute inset-0 bg-gradient-to-t from-[#080808] via-transparent to-transparent z-10 opacity-60"></div>
+       {/* HERO SECTION */}
+<section id="home" className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center pt-4">
+  
+  {/* KONTEN KIRI: TEKS & TOMBOL SOCIAL (Mengambil 7 Kolom) */}
+  <div className="lg:col-span-7 space-y-6">
+    <p className="text-blue-500 font-semibold tracking-widest text-sm uppercase">HELLO, I'M</p>
+    <h1 className="text-5xl lg:text-7xl font-extrabold text-white tracking-tight">
+      Hiruu.
+    </h1>
+    <h2 className="text-2xl lg:text-3xl font-bold text-blue-500">
+      IT & NETWORK ENGINEER
+    </h2>
+    <p className="text-slate-400 text-base leading-relaxed max-w-xl">
+      Passionate about technology, networking, hardware engineering, and building digital solutions that make an impact.
+    </p>
     
-    {/* Tag foto profil kamu */}
-    <img 
-      src="\hiruuu\public\foto_profile.jpg" 
-      alt="Foto Profil" 
-      className="w-full h-full object-cover"
-    />
+    <div className="pt-2">
+      <a href="#projects" className="inline-flex items-center gap-2 px-6 py-3 border border-blue-500/50 rounded-lg text-blue-400 hover:bg-blue-500/10 transition font-medium text-sm">
+        VIEW MY WORK <span>→</span>
+      </a>
+    </div>
+
+    {/* Social Button Links */}
+    <div className="flex flex-wrap gap-3 pt-4">
+      <a 
+        href="https://github.com/hylxzzh" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        className="flex items-center gap-2 px-4 py-2 bg-slate-900 border border-slate-800 rounded-lg text-slate-300 hover:text-white hover:border-blue-500/50 hover:bg-blue-500/10 transition text-sm font-medium"
+      >
+        <img src="/icons/github.svg" alt="GitHub" className="w-4 h-4" />
+        <span>GitHub</span>
+      </a>
+
+      <a 
+        href="https://www.linkedin.com/in/muhammad-hylman-dat-jasbila-remar-525622356/" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        className="flex items-center gap-2 px-4 py-2 bg-slate-900 border border-slate-800 rounded-lg text-slate-300 hover:text-white hover:border-blue-500/50 hover:bg-blue-500/10 transition text-sm font-medium"
+      >
+        <img src="/icons/linkedin.svg" alt="LinkedIn" className="w-4 h-4" />
+        <span>LinkedIn</span>
+      </a>
+
+      <a 
+        href="https://www.instagram.com/hylman_remar/" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        className="flex items-center gap-2 px-4 py-2 bg-slate-900 border border-slate-800 rounded-lg text-slate-300 hover:text-white hover:border-blue-500/50 hover:bg-blue-500/10 transition text-sm font-medium"
+      >
+        <img src="/icons/instagram.svg" alt="Instagram" className="w-4 h-4" />
+        <span>Instagram</span>
+      </a>
+
+      <a 
+        href="mailto:hylmanremar@gmail.com" 
+        className="flex items-center gap-2 px-4 py-2 bg-slate-900 border border-slate-800 rounded-lg text-slate-300 hover:text-white hover:border-blue-500/50 hover:bg-blue-500/10 transition text-sm font-medium"
+      >
+        <img src="/icons/email.svg" alt="Email" className="w-4 h-4" />
+        <span>Email</span>
+      </a>
+    </div>
   </div>
-</div>
+
+  {/* KONTEN KANAN: BINGKAI FOTO PROFIL (Mengambil 5 Kolom) */}
+  <div className="lg:col-span-5 flex justify-center">
+    <div className="relative w-full max-w-sm aspect-[4/5] rounded-2xl overflow-hidden border-2 border-blue-500/30 bg-slate-900/50 shadow-2xl shadow-blue-500/10">
+      <div className="absolute inset-0 bg-gradient-to-t from-[#080808] via-transparent to-transparent z-10 opacity-60"></div>
+      <img 
+        src="\public\foto\hylman.jpg" 
+        alt="Hiruu Profile" 
+        className="w-full h-full object-cover"
+      />
+    </div>
+  </div>
+
+</section>
+
         {/* SCROLL DOWN INDICATOR */}
         <div className="flex flex-col items-center justify-center text-slate-500 text-xs gap-2 pt-4">
           <div className="w-5 h-8 border-2 border-slate-700 rounded-full flex justify-center p-1">
