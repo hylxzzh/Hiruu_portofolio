@@ -2,13 +2,12 @@ import type { Metadata } from "next";
 import { Inter, Monsieur_La_Doulaise } from "next/font/google";
 import "./globals.css";
 
-// 1. Load Font Inter (untuk teks umum & body)
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
 });
 
-// 2. Load Font Monsieur La Doulaise (untuk aksen & signature)
+// Font Monsieur La Doulaise
 const cursive = Monsieur_La_Doulaise({
   weight: "400",
   subsets: ["latin"],

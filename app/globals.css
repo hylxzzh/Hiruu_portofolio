@@ -3,3 +3,8 @@
 html {
   scroll-behavior: smooth;
 }
+@layer utilities {
+  .font-cursive {
+    font-family: var(--font-cursive), cursive;
+  }
+}
