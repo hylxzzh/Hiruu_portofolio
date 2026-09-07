@@ -48,17 +48,18 @@ export default function Home() {
           </div>
 
           {/* Profile Image Frame */}
-          <div className="lg:col-span-5 flex justify-center">
-            <div className="relative w-full max-w-sm aspect-[4/5] rounded-2xl overflow-hidden border-2 border-blue-500/30 bg-slate-900/50 shadow-2xl shadow-blue-500/10">
-              <div className="absolute inset-0 bg-gradient-to-t from-[#080808] via-transparent to-transparent z-10 opacity-60"></div>
-              {/* Tempat Foto Profil */}
-              <div className="w-full h-full flex items-center justify-center text-slate-600 bg-slate-900">
-                [ Area Foto Profil ]
-              </div>
-            </div>
-          </div>
-        </section>
-
+<div className="lg:col-span-5 flex justify-center">
+  <div className="relative w-full max-w-sm aspect-[4/5] rounded-2xl overflow-hidden border-2 border-blue-500/30 bg-slate-900/50 shadow-2xl shadow-blue-500/10">
+    <div className="absolute inset-0 bg-gradient-to-t from-[#080808] via-transparent to-transparent z-10 opacity-60"></div>
+    
+    {/* Tag foto profil kamu */}
+    <img 
+      src="/foto-profil.jpg" 
+      alt="Foto Profil" 
+      className="w-full h-full object-cover"
+    />
+  </div>
+</div>
         {/* SCROLL DOWN INDICATOR */}
         <div className="flex flex-col items-center justify-center text-slate-500 text-xs gap-2 pt-4">
           <div className="w-5 h-8 border-2 border-slate-700 rounded-full flex justify-center p-1">
