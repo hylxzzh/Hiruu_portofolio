@@ -40,17 +40,16 @@ export default function Home() {
           {/* LOGO BRAND (Menggunakan Font Cursive Monsieur La Doulaise) */}
           <a href="#home" className="flex items-center gap-2 group">
             <span className="w-1.5 h-1.5 rounded-full bg-amber-400 shadow-[0_0_8px_rgba(251,191,36,0.8)]"></span>
-            <span className="font-cursive text-3xl text-amber-200 tracking-wide font-normal">
+            <span className="font-cursive text-4xl text-amber-200 tracking-wide font-normal">
               Hiruu
             </span>
           </a>
 
-          {/* MENU DESKTOP */}
-          <nav className="hidden md:flex items-center gap-8 text-[11px] tracking-[0.2em] font-light text-zinc-400">
+          {/* MENU DESKTOP (Hanya 3 Point: HOME, ABOUT, SAY HELLO) */}
+          <nav className="hidden md:flex items-center gap-10 text-[11px] tracking-[0.2em] font-light text-zinc-400">
             <a href="#home" className="hover:text-amber-300 transition-colors">HOME</a>
             <a href="#about" className="hover:text-amber-300 transition-colors">ABOUT</a>
-            <a href="#projects" className="hover:text-amber-300 transition-colors">PROJECTS</a>
-            <a href="#contact" className="hover:text-amber-300 transition-colors">CONTACT</a>
+            <a href="#contact" className="hover:text-amber-300 transition-colors">SAY HELLO</a>
           </nav>
 
           {/* TOMBOL TOGGLE MOBILE */}
@@ -68,8 +67,7 @@ export default function Home() {
           <nav className="md:hidden bg-[#0d0d0b] border-b border-amber-900/30 px-6 py-5 flex flex-col gap-4 text-xs font-light tracking-widest text-zinc-300">
             <a href="#home" onClick={() => setIsMenuOpen(false)} className="hover:text-amber-300 transition-colors">HOME</a>
             <a href="#about" onClick={() => setIsMenuOpen(false)} className="hover:text-amber-300 transition-colors">ABOUT</a>
-            <a href="#projects" onClick={() => setIsMenuOpen(false)} className="hover:text-amber-300 transition-colors">PROJECTS</a>
-            <a href="#contact" onClick={() => setIsMenuOpen(false)} className="hover:text-amber-300 transition-colors">CONTACT</a>
+            <a href="#contact" onClick={() => setIsMenuOpen(false)} className="hover:text-amber-300 transition-colors">SAY HELLO</a>
           </nav>
         )}
       </header>
@@ -86,26 +84,28 @@ export default function Home() {
               Welcome to my portfolio
             </p>
 
-            {/* Nama dengan sentuhan Kaligrafi Emas */}
+            {/* Nama & Subtitle dengan Font Monsieur La Doulaise */}
             <div>
-              <h1 className="font-cursive text-6xl sm:text-7xl lg:text-8xl text-amber-200 font-normal leading-tight drop-shadow-[0_2px_10px_rgba(217,119,6,0.15)]">
+              <h1 className="font-cursive text-7xl sm:text-8xl lg:text-9xl text-amber-200 font-normal leading-none drop-shadow-[0_2px_10px_rgba(217,119,6,0.15)]">
                 Hiruu
               </h1>
-              <h2 className="text-lg lg:text-xl font-light text-amber-100/70 tracking-widest uppercase -mt-2">
+              <h2 className="font-cursive text-3xl sm:text-4xl text-amber-100/70 tracking-wide font-normal -mt-2">
                 IT & Network Engineer
               </h2>
             </div>
 
-            <p className="text-zinc-400 text-sm leading-relaxed max-w-xl font-light tracking-wide">
+            <p className="text-zinc-400 text-sm leading-relaxed max-w-xl font-light tracking-wide pt-2">
               Passionate about technology, networking infrastructure, hardware engineering, and crafting digital experiences with precision and sophistication.
             </p>
             
+            {/* Tombol Explore Work dengan Font Monsieur La Doulaise */}
             <div className="pt-2">
               <a 
                 href="#projects" 
-                className="inline-flex items-center gap-3 px-6 py-2.5 border border-amber-500/40 rounded-full text-amber-300 hover:bg-amber-500/10 hover:border-amber-400 transition text-xs tracking-[0.15em] font-light shadow-[0_0_15px_rgba(217,119,6,0.05)]"
+                className="inline-flex items-center gap-3 px-7 py-2 border border-amber-500/40 rounded-full text-amber-200 hover:bg-amber-500/10 hover:border-amber-400 transition shadow-[0_0_15px_rgba(217,119,6,0.05)]"
               >
-                EXPLORE WORK <span>→</span>
+                <span className="font-cursive text-2xl font-normal leading-none pt-1">Explore Work</span>
+                <span className="text-xs">→</span>
               </a>
             </div>
 
@@ -131,9 +131,9 @@ export default function Home() {
             </div>
           </div>
 
-          {/* SLIDER FOTO PROFIL DENGAN FRAME EMAS ELEGANK */}
+          {/* SLIDER FOTO PROFIL (TANPA BORDER) */}
           <div className="lg:col-span-5 flex justify-center">
-            <div className="relative w-full max-w-xs aspect-[4/5] rounded-2xl overflow-hidden border border-amber-500/30 bg-[#0e0e0c] shadow-[0_0_30px_rgba(0,0,0,0.8)] group">
+            <div className="relative w-full max-w-xs aspect-[4/5] rounded-2xl overflow-hidden bg-[#0e0e0c] shadow-[0_0_30px_rgba(0,0,0,0.8)] group">
               <div className="absolute inset-0 bg-gradient-to-t from-[#080807] via-transparent to-transparent z-10 opacity-40 pointer-events-none"></div>
 
               <img
@@ -185,8 +185,9 @@ export default function Home() {
           
           {/* About Me */}
           <div className="p-7 bg-[#0c0c0a] border border-amber-900/20 rounded-xl space-y-5 hover:border-amber-800/40 transition">
-            <div className="flex items-center gap-2 text-amber-300 text-xs tracking-widest font-light uppercase">
-              <span className="w-1.5 h-1.5 rounded-full bg-amber-400"></span> ABOUT ME
+            <div className="flex items-center gap-2 text-amber-300">
+              <span className="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
+              <span className="font-cursive text-2xl text-amber-200 leading-none">About Me</span>
             </div>
             <p className="text-zinc-400 text-xs leading-relaxed font-light">
               Technology enthusiast focusing on network administration, hardware systems, and modern web applications. 3rd Place LKS Provincial Winner.
@@ -206,8 +207,9 @@ export default function Home() {
 
           {/* Skills */}
           <div className="p-7 bg-[#0c0c0a] border border-amber-900/20 rounded-xl space-y-5 hover:border-amber-800/40 transition">
-            <div className="flex items-center gap-2 text-amber-300 text-xs tracking-widest font-light uppercase">
-              <span className="w-1.5 h-1.5 rounded-full bg-amber-400"></span> SKILLS
+            <div className="flex items-center gap-2 text-amber-300">
+              <span className="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
+              <span className="font-cursive text-2xl text-amber-200 leading-none">Skills</span>
             </div>
             <div className="space-y-3.5 text-xs">
               {[
@@ -232,8 +234,9 @@ export default function Home() {
 
           {/* Experience */}
           <div className="p-7 bg-[#0c0c0a] border border-amber-900/20 rounded-xl space-y-5 hover:border-amber-800/40 transition">
-            <div className="flex items-center gap-2 text-amber-300 text-xs tracking-widest font-light uppercase">
-              <span className="w-1.5 h-1.5 rounded-full bg-amber-400"></span> EXPERIENCE
+            <div className="flex items-center gap-2 text-amber-300">
+              <span className="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
+              <span className="font-cursive text-2xl text-amber-200 leading-none">Experience</span>
             </div>
             <div className="relative border-l border-amber-900/30 pl-4 space-y-5 text-xs">
               
@@ -281,8 +284,9 @@ export default function Home() {
         {/* PROJECTS */}
         <section id="projects" className="space-y-6">
           <div className="flex justify-between items-center">
-            <div className="flex items-center gap-2 text-amber-300 text-xs tracking-widest font-light uppercase">
-              <span className="w-1.5 h-1.5 rounded-full bg-amber-400"></span> SERVICES & PROJECTS
+            <div className="flex items-center gap-2 text-amber-300">
+              <span className="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
+              <span className="font-cursive text-3xl text-amber-200 leading-none">Services & Projects</span>
             </div>
             <a href="#" className="text-xs text-amber-400/80 hover:text-amber-300 font-light tracking-wider">VIEW ALL →</a>
           </div>
@@ -306,10 +310,11 @@ export default function Home() {
           </div>
         </section>
 
-        {/* CONTACT ME */}
+        {/* SAY HELLO (CONTACT ME) */}
         <section id="contact" className="space-y-6 pt-4">
-          <div className="flex items-center gap-2 text-amber-300 text-xs tracking-widest font-light uppercase">
-            <span className="w-1.5 h-1.5 rounded-full bg-amber-400"></span> CONTACT
+          <div className="flex items-center gap-2 text-amber-300">
+            <span className="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
+            <span className="font-cursive text-3xl text-amber-200 leading-none">Say Hello</span>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
@@ -333,8 +338,8 @@ export default function Home() {
                 </div>
                 <input type="text" placeholder="Subject" className="w-full bg-[#0c0c0a] border border-amber-900/30 rounded-lg p-3 text-xs text-amber-100 placeholder:text-zinc-600 focus:outline-none focus:border-amber-500/50 font-light" />
                 <textarea rows={4} placeholder="Your Message" className="w-full bg-[#0c0c0a] border border-amber-900/30 rounded-lg p-3 text-xs text-amber-100 placeholder:text-zinc-600 focus:outline-none focus:border-amber-500/50 font-light"></textarea>
-                <button type="button" className="px-6 py-2.5 border border-amber-500/40 text-amber-300 rounded-lg text-xs font-light hover:bg-amber-500/10 transition tracking-wider">
-                  SEND MESSAGE →
+                <button type="button" className="px-6 py-2.5 border border-amber-500/40 text-amber-200 rounded-lg text-xs hover:bg-amber-500/10 transition">
+                  <span className="font-cursive text-xl">Send Message</span> →
                 </button>
               </form>
             </div>
