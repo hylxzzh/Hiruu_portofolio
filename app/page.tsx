@@ -32,6 +32,30 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-[#080808] text-slate-200 font-sans selection:bg-blue-600 selection:text-white px-4 sm:px-8 lg:px-16 max-w-7xl mx-auto space-y-16 py-8">
       
+      {/* NAVBAR */}
+      <header className="flex justify-between items-center py-4 border-b border-slate-900 sticky top-0 bg-[#080808]/80 backdrop-blur-md z-50">
+        <div className="text-xl font-bold tracking-tight text-white flex items-center gap-2">
+          <span className="w-3 h-3 rounded-full bg-blue-500 animate-pulse"></span>
+          <span>Hiruu<span className="text-blue-500">.</span></span>
+        </div>
+
+        <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-400">
+          <a href="#home" className="hover:text-blue-400 transition">HOME</a>
+          <a href="#about" className="hover:text-blue-400 transition">ABOUT</a>
+          <a href="#projects" className="hover:text-blue-400 transition">PROJECTS</a>
+          <a href="#contact" className="hover:text-blue-400 transition">CONTACT</a>
+        </nav>
+
+        <div>
+          <a 
+            href="#contact" 
+            className="px-4 py-2 text-xs border border-blue-500/50 text-blue-400 rounded-lg hover:bg-blue-500/10 transition font-medium"
+          >
+            HIRE ME
+          </a>
+        </div>
+      </header>
+
       {/* HERO SECTION */}
       <section id="home" className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center pt-4">
         
