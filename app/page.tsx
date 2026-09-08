@@ -47,7 +47,7 @@ export default function Home() {
           {/* LOGO BRAND */}
           <a href="#home" className="flex items-center gap-2 group">
             <span className="w-2 h-2 rounded-full bg-orange-400 shadow-[0_0_12px_rgba(251,146,60,0.8)]"></span>
-            <span className="font-cursive text-3xl sm:text-4xl text-stone-100 tracking-wide font-normal">
+            <span className="font-cursive text-3xl sm:text-4xl text-amber-200 tracking-wide font-normal">
               Hiruu
             </span>
           </a>
@@ -122,10 +122,10 @@ export default function Home() {
 
             {/* Nama & Subtitle */}
             <div>
-              <h1 className="font-cursive text-7xl sm:text-8xl lg:text-[9.5rem] text-stone-100 font-normal leading-[0.85] drop-shadow-[0_2px_18px_rgba(251,146,60,0.12)]">
+              <h1 className="font-cursive text-7xl sm:text-8xl lg:text-[9.5rem] text-amber-200 font-normal leading-[0.85] drop-shadow-[0_2px_18px_rgba(251,191,36,0.18)]">
                 Hiruu
               </h1>
-              <h2 className="font-cursive text-2xl sm:text-4xl text-orange-200/80 tracking-wide font-normal mt-2">
+              <h2 className="font-cursive text-2xl sm:text-4xl text-amber-100/85 tracking-wide font-normal mt-2">
                 IT & Network Engineer
               </h2>
             </div>
@@ -138,9 +138,9 @@ export default function Home() {
             <div className="pt-1">
               <a 
                 href="#projects" 
-                className="inline-flex items-center gap-4 px-6 sm:px-7 py-3 bg-orange-400 text-[#171713] rounded-full hover:bg-orange-300 transition shadow-[0_8px_30px_rgba(249,115,22,0.18)]"
+                className="inline-flex items-center gap-4 px-6 sm:px-7 py-3 border border-amber-400/70 text-amber-200 rounded-full hover:bg-amber-400/10 hover:border-amber-300 transition shadow-[0_8px_30px_rgba(249,115,22,0.12)]"
               >
-                <span className="font-cursive text-xl sm:text-2xl font-normal leading-none pt-1">Explore Work</span>
+                <span className="font-cursive text-amber-200 text-xl sm:text-2xl font-normal leading-none pt-1">Explore Work</span>
                 <span className="text-base">↗</span>
               </a>
             </div>
@@ -233,10 +233,10 @@ export default function Home() {
           <div className="p-6 sm:p-7 bg-stone-900/50 border border-stone-700/50 rounded-2xl space-y-4 sm:space-y-5 hover:border-orange-700/50 transition">
             <div className="flex items-center gap-2 text-orange-300">
               <span className="w-1.5 h-1.5 rounded-full bg-orange-400"></span>
-              <span className="font-cursive text-2xl text-stone-100 leading-none">About Me</span>
+              <span className="font-cursive text-2xl text-amber-200 leading-none">About Me</span>
             </div>
             <p className="text-zinc-400 text-xs leading-relaxed font-light">
-              Technology enthusiast focusing on network administration, hardware systems, and modern web applications. 3rd Place LKS Provincial Winner.
+              I am a Computer and Network Engineering student with hands-on experience in IT. I have solved a wide range of hardware and software issues, worked with MikroTik and Cisco networks, developed websites, and handled industrial-scale cabling including fiber optic and Ethernet. I also achieved 3rd place in the provincial LKS competition.
             </p>
             <div className="space-y-2.5 pt-2 text-xs text-zinc-400 font-light">
               <div className="flex items-center gap-2.5">
@@ -255,7 +255,7 @@ export default function Home() {
           <div className="p-6 sm:p-7 bg-stone-900/50 border border-stone-700/50 rounded-2xl space-y-4 sm:space-y-5 hover:border-orange-700/50 transition">
             <div className="flex items-center gap-2 text-orange-300">
               <span className="w-1.5 h-1.5 rounded-full bg-orange-400"></span>
-              <span className="font-cursive text-2xl text-stone-100 leading-none">Skills</span>
+              <span className="font-cursive text-2xl text-amber-200 leading-none">Skills</span>
             </div>
             <div className="space-y-3.5 text-xs">
               {[
@@ -282,7 +282,7 @@ export default function Home() {
           <div className="p-6 sm:p-7 bg-stone-900/50 border border-stone-700/50 rounded-2xl space-y-4 sm:space-y-5 hover:border-orange-700/50 transition">
             <div className="flex items-center gap-2 text-orange-300">
               <span className="w-1.5 h-1.5 rounded-full bg-orange-400"></span>
-              <span className="font-cursive text-2xl text-stone-100 leading-none">Experience</span>
+              <span className="font-cursive text-2xl text-amber-200 leading-none">Experience</span>
             </div>
             <div className="relative border-l border-amber-900/30 pl-4 space-y-5 text-xs">
               
@@ -311,7 +311,7 @@ export default function Home() {
         <section id="contact" className="space-y-6 pt-2">
           <div className="flex items-center gap-2 text-orange-300">
             <span className="w-1.5 h-1.5 rounded-full bg-orange-400"></span>
-            <span className="font-cursive text-2xl sm:text-3xl text-stone-100 leading-none">Say Hello</span>
+            <span className="font-cursive text-2xl sm:text-3xl text-amber-200 leading-none">Say Hello</span>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
@@ -335,8 +335,8 @@ export default function Home() {
                 </div>
                 <input type="text" placeholder="Subject" className="w-full bg-stone-900/60 border border-stone-700/60 rounded-lg p-3 text-xs text-stone-100 placeholder:text-stone-600 focus:outline-none focus:border-orange-500/70 font-light" />
                 <textarea rows={4} placeholder="Your Message" className="w-full bg-stone-900/60 border border-stone-700/60 rounded-lg p-3 text-xs text-stone-100 placeholder:text-stone-600 focus:outline-none focus:border-orange-500/70 font-light"></textarea>
-                <button type="button" className="px-6 py-2.5 bg-orange-400 text-[#171713] rounded-lg text-xs hover:bg-orange-300 transition">
-                  <span className="font-cursive text-xl">Send Message</span> →
+                <button type="button" className="px-6 py-2.5 border border-amber-400/70 text-amber-200 rounded-lg text-xs hover:bg-amber-400/10 hover:border-amber-300 transition">
+                  <span className="font-cursive text-amber-200 text-xl">Send Message</span> →
                 </button>
               </form>
             </div>
