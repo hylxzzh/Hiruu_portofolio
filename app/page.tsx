@@ -5,15 +5,22 @@ import React, { useState, useEffect } from 'react';
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  // =========================================================================
+  // 📸 DAFTAR FOTO PROFIL (LOKASI FILE)
+  // Masukkan file foto kamu ke folder 'public' di VS Code.
+  // Kamu tinggal ganti string nama file di bawah ini sesuai nama foto kamu.
+  // Contoh: '/foto-saya.jpg', '/foto-kerja.png', dsb.
+  // =========================================================================
   const profileImages = [
-    '/profile.jpg',
-    '/profile2.jpg',
-    '/profile3.jpg',
+    '/foto_profile/profile1.jpg',
+    '/foto_profile/profile2.jpg',
+    '/foto_profile/profile3.jpg',
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
+    if (profileImages.length === 0) return;
     const timer = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % profileImages.length);
     }, 4000);
@@ -31,58 +38,69 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-[#080807] text-zinc-300 font-sans selection:bg-amber-500/20 selection:text-amber-200">
+    <div className="min-h-screen bg-[#111310] text-stone-300 font-sans selection:bg-orange-500/30 selection:text-orange-100">
       
-      {/* NAVBAR MINIMALIS MEWAH */}
-      <header className="sticky top-0 bg-[#080807]/90 backdrop-blur-md z-50 border-b border-amber-900/20">
-        <div className="flex justify-between items-center py-4 px-4 sm:px-8 lg:px-16 max-w-7xl mx-auto">
+      {/* NAVBAR (Dibuat aman agar tidak menutupi info di bawahnya) */}
+      <header className="w-full bg-[#111310]/90 backdrop-blur-xl border-b border-stone-700/40 sticky top-0 z-50">
+        <div className="flex justify-between items-center py-4 px-5 sm:px-8 lg:px-16 max-w-7xl mx-auto">
           
           {/* LOGO BRAND */}
           <a href="#home" className="flex items-center gap-2 group">
-            <span className="w-1.5 h-1.5 rounded-full bg-amber-400 shadow-[0_0_8px_rgba(251,191,36,0.8)]"></span>
-            <span className="font-cursive text-3xl sm:text-4xl text-amber-200 tracking-wide font-normal">
+            <span className="w-2 h-2 rounded-full bg-orange-400 shadow-[0_0_12px_rgba(251,146,60,0.8)]"></span>
+            <span className="font-cursive text-3xl sm:text-4xl text-stone-100 tracking-wide font-normal">
               Hiruu
             </span>
           </a>
 
           {/* MENU DESKTOP */}
-          <nav className="hidden md:flex items-center gap-10 text-[11px] tracking-[0.2em] font-light text-zinc-400">
-            <a href="#home" className="hover:text-amber-300 transition-colors">HOME</a>
-            <a href="#about" className="hover:text-amber-300 transition-colors">ABOUT</a>
-            <a href="#contact" className="hover:text-amber-300 transition-colors">SAY HELLO</a>
+          <nav className="hidden md:flex items-center gap-10 text-[10px] tracking-[0.24em] font-medium text-stone-500">
+            <a href="#home" className="hover:text-orange-300 transition-colors">HOME</a>
+            <a href="#about" className="hover:text-orange-300 transition-colors">ABOUT</a>
+            <a href="#contact" className="hover:text-orange-300 transition-colors">SAY HELLO</a>
           </nav>
 
-          {/* TOMBOL TOGGLE MOBILE */}
+          {/* TOMBOL MOBILE TOGGLE (Hanya Icon Simpel, Tanpa Teks Menu/Close) */}
           <button 
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden text-amber-300/80 hover:text-amber-200 text-xs font-light uppercase tracking-widest px-3 py-1.5 border border-amber-900/40 rounded bg-amber-950/20 active:scale-95 transition-transform"
+            className="md:hidden text-orange-200 p-2 rounded-lg border border-stone-700/60 bg-stone-900/60 hover:bg-stone-800 transition-colors"
+            aria-label="Toggle menu"
           >
-            {isMenuOpen ? "CLOSE ✕" : "MENU ☰"}
+            {isMenuOpen ? (
+              /* Icon Silang (Close) */
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            ) : (
+              /* Icon Garis 3 (Hamburger) */
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+              </svg>
+            )}
           </button>
 
         </div>
 
-        {/* DROPDOWN MOBILE DENGAN ANIMASI SLIDE DOWN */}
+        {/* DROPDOWN MENU MOBILE (Animasi halus, mendorong konten ke bawah) */}
         {isMenuOpen && (
-          <nav className="md:hidden bg-[#0a0a08]/95 backdrop-blur-lg border-b border-amber-900/30 px-6 py-6 flex flex-col gap-4 text-xs font-light tracking-widest text-zinc-300 animate-slide-down">
+          <nav className="md:hidden bg-[#151714] border-t border-stone-700/40 px-6 py-5 flex flex-col gap-4 text-xs font-light tracking-widest text-stone-300 animate-slide-down">
             <a 
               href="#home" 
               onClick={() => setIsMenuOpen(false)} 
-              className="hover:text-amber-300 transition-colors py-1"
+              className="hover:text-orange-300 transition-colors py-1"
             >
               HOME
             </a>
             <a 
               href="#about" 
               onClick={() => setIsMenuOpen(false)} 
-              className="hover:text-amber-300 transition-colors py-1"
+              className="hover:text-orange-300 transition-colors py-1"
             >
               ABOUT
             </a>
             <a 
               href="#contact" 
               onClick={() => setIsMenuOpen(false)} 
-              className="hover:text-amber-300 transition-colors py-1"
+              className="hover:text-orange-300 transition-colors py-1"
             >
               SAY HELLO
             </a>
@@ -91,28 +109,28 @@ export default function Home() {
       </header>
 
       {/* CONTAINER UTAMA */}
-      <div className="px-4 sm:px-8 lg:px-16 max-w-7xl mx-auto space-y-20 py-8 sm:py-12">
+      <div className="px-5 sm:px-8 lg:px-16 max-w-7xl mx-auto space-y-28 py-10 sm:py-16">
 
         {/* HERO SECTION */}
-        <section id="home" className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center pt-2 sm:pt-4">
+        <section id="home" className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center pt-2 sm:pt-6">
           
           <div className="lg:col-span-7 space-y-5 sm:space-y-6">
-            <p className="text-amber-400/90 font-light tracking-[0.25em] text-xs uppercase flex items-center gap-2">
-              <span className="w-6 h-[1px] bg-amber-400/50"></span>
+            <p className="text-orange-300/90 font-medium tracking-[0.25em] text-[10px] uppercase flex items-center gap-3">
+              <span className="w-8 h-px bg-orange-400/70"></span>
               Welcome to my portfolio
             </p>
 
             {/* Nama & Subtitle */}
             <div>
-              <h1 className="font-cursive text-6xl sm:text-8xl lg:text-9xl text-amber-200 font-normal leading-none drop-shadow-[0_2px_10px_rgba(217,119,6,0.15)]">
+              <h1 className="font-cursive text-7xl sm:text-8xl lg:text-[9.5rem] text-stone-100 font-normal leading-[0.85] drop-shadow-[0_2px_18px_rgba(251,146,60,0.12)]">
                 Hiruu
               </h1>
-              <h2 className="font-cursive text-2xl sm:text-4xl text-amber-100/70 tracking-wide font-normal -mt-1 sm:-mt-2">
+              <h2 className="font-cursive text-2xl sm:text-4xl text-orange-200/80 tracking-wide font-normal mt-2">
                 IT & Network Engineer
               </h2>
             </div>
 
-            <p className="text-zinc-400 text-xs sm:text-sm leading-relaxed max-w-xl font-light tracking-wide pt-1">
+            <p className="text-stone-400 text-sm sm:text-base leading-relaxed max-w-xl font-light pt-2">
               Passionate about technology, networking infrastructure, hardware engineering, and crafting digital experiences with precision and sophistication.
             </p>
             
@@ -120,14 +138,14 @@ export default function Home() {
             <div className="pt-1">
               <a 
                 href="#projects" 
-                className="inline-flex items-center gap-3 px-6 sm:px-7 py-2 border border-amber-500/40 rounded-full text-amber-200 hover:bg-amber-500/10 hover:border-amber-400 transition shadow-[0_0_15px_rgba(217,119,6,0.05)]"
+                className="inline-flex items-center gap-4 px-6 sm:px-7 py-3 bg-orange-400 text-[#171713] rounded-full hover:bg-orange-300 transition shadow-[0_8px_30px_rgba(249,115,22,0.18)]"
               >
                 <span className="font-cursive text-xl sm:text-2xl font-normal leading-none pt-1">Explore Work</span>
-                <span className="text-xs">→</span>
+                <span className="text-base">↗</span>
               </a>
             </div>
 
-            {/* SOCIAL LINKS: GRID 2x2 DI MOBILE, BANJAR HORISONTAL DI LAPTOP */}
+            {/* SOCIAL LINKS (Grid 2x2 di HP) */}
             <div className="grid grid-cols-2 sm:flex sm:flex-wrap gap-2.5 sm:gap-3 pt-3 sm:pt-4">
               {[
                 { name: 'GitHub', link: 'https://github.com', icon: '/icons/github.svg' },
@@ -140,7 +158,7 @@ export default function Home() {
                   href={s.link} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center sm:justify-start gap-2 px-3.5 py-2.5 bg-[#0e0e0c] border border-amber-900/30 rounded-lg text-zinc-400 hover:text-amber-200 hover:border-amber-500/40 transition text-xs font-light w-full sm:w-auto text-center"
+                  className="flex items-center justify-center sm:justify-start gap-2 px-3.5 py-2.5 bg-stone-900/60 border border-stone-700/60 rounded-lg text-stone-400 hover:text-orange-200 hover:border-orange-500/50 transition text-xs font-light w-full sm:w-auto text-center"
                 >
                   <img src={s.icon} alt={s.name} className="w-3.5 h-3.5 opacity-60 invert shrink-0" />
                   <span>{s.name}</span>
@@ -149,63 +167,73 @@ export default function Home() {
             </div>
           </div>
 
-          {/* SLIDER FOTO PROFIL (TANPA BORDER) */}
+          {/* SLIDER FOTO PROFIL (Sistem Panggilan Foto Mudah) */}
           <div className="lg:col-span-5 flex justify-center pt-4 lg:pt-0">
-            <div className="relative w-full max-w-[280px] sm:max-w-xs aspect-[4/5] rounded-2xl overflow-hidden bg-[#0e0e0c] shadow-[0_0_30px_rgba(0,0,0,0.8)] group">
-              <div className="absolute inset-0 bg-gradient-to-t from-[#080807] via-transparent to-transparent z-10 opacity-40 pointer-events-none"></div>
+            <div className="relative w-full max-w-[280px] sm:max-w-xs aspect-[4/5] rounded-[2rem] overflow-hidden bg-stone-900 shadow-[18px_22px_0_rgba(194,65,12,0.35),0_0_50px_rgba(0,0,0,0.45)] group rotate-2 hover:rotate-0 transition-transform duration-500">
+              <div className="absolute inset-0 bg-gradient-to-t from-[#111310] via-transparent to-transparent z-10 opacity-50 pointer-events-none"></div>
 
-              <img
-                src={profileImages[currentIndex]}
-                alt={`Profile ${currentIndex + 1}`}
-                className="w-full h-full object-cover transition-all duration-700 ease-in-out filter brightness-[0.95] contrast-[1.05]"
-              />
+              {profileImages.length > 0 ? (
+                <img
+                  src={profileImages[currentIndex]}
+                  alt={`Profile ${currentIndex + 1}`}
+                  className="w-full h-full object-cover transition-all duration-700 ease-in-out filter brightness-[0.95] contrast-[1.05]"
+                />
+              ) : (
+                <div className="w-full h-full flex items-center justify-center text-zinc-600 text-xs font-light">
+                  No Image Available
+                </div>
+              )}
 
-              <button
-                onClick={prevSlide}
-                className="absolute left-2 top-1/2 -translate-y-1/2 z-20 bg-black/60 border border-amber-500/30 hover:bg-amber-600/80 text-amber-200 p-2 rounded-full opacity-0 group-hover:opacity-100 transition duration-300 text-xs"
-              >
-                ❮
-              </button>
-
-              <button
-                onClick={nextSlide}
-                className="absolute right-2 top-1/2 -translate-y-1/2 z-20 bg-black/60 border border-amber-500/30 hover:bg-amber-600/80 text-amber-200 p-2 rounded-full opacity-0 group-hover:opacity-100 transition duration-300 text-xs"
-              >
-                ❯
-              </button>
-
-              <div className="absolute bottom-3 left-1/2 -translate-x-1/2 z-20 flex gap-1.5">
-                {profileImages.map((_, index) => (
+              {profileImages.length > 1 && (
+                <>
                   <button
-                    key={index}
-                    onClick={() => setCurrentIndex(index)}
-                    className={`h-1 rounded-full transition-all duration-300 ${
-                      currentIndex === index ? 'w-5 bg-amber-400' : 'w-1.5 bg-zinc-600/50'
-                    }`}
-                  />
-                ))}
-              </div>
+                    onClick={prevSlide}
+                    className="absolute left-2 top-1/2 -translate-y-1/2 z-20 bg-black/60 border border-amber-500/30 hover:bg-amber-600/80 text-amber-200 p-2 rounded-full opacity-0 group-hover:opacity-100 transition duration-300 text-xs"
+                  >
+                    ❮
+                  </button>
+
+                  <button
+                    onClick={nextSlide}
+                    className="absolute right-2 top-1/2 -translate-y-1/2 z-20 bg-black/60 border border-amber-500/30 hover:bg-amber-600/80 text-amber-200 p-2 rounded-full opacity-0 group-hover:opacity-100 transition duration-300 text-xs"
+                  >
+                    ❯
+                  </button>
+
+                  <div className="absolute bottom-3 left-1/2 -translate-x-1/2 z-20 flex gap-1.5">
+                    {profileImages.map((_, index) => (
+                      <button
+                        key={index}
+                        onClick={() => setCurrentIndex(index)}
+                        className={`h-1 rounded-full transition-all duration-300 ${
+                          currentIndex === index ? 'w-5 bg-amber-400' : 'w-1.5 bg-zinc-600/50'
+                        }`}
+                      />
+                    ))}
+                  </div>
+                </>
+              )}
             </div>
           </div>
 
         </section>
 
         {/* SCROLL DOWN INDICATOR */}
-        <div className="flex flex-col items-center justify-center text-zinc-600 text-[10px] tracking-[0.2em] gap-2 pt-2">
-          <div className="w-4 h-7 border border-amber-900/40 rounded-full flex justify-center p-1">
-            <div className="w-1 h-1.5 bg-amber-400/80 rounded-full animate-bounce"></div>
+        <div className="flex flex-col items-center justify-center text-stone-600 text-[10px] tracking-[0.2em] gap-2 pt-2">
+          <div className="w-4 h-7 border border-stone-700/70 rounded-full flex justify-center p-1">
+            <div className="w-1 h-1.5 bg-orange-400/80 rounded-full animate-bounce"></div>
           </div>
           <span>SCROLL</span>
         </div>
 
-        {/* ABOUT, SKILLS, EXPERIENCE */}
-        <section id="about" className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {/* SECTION ABOUT ME (SIAP DILANJUTKAN) */}
+        <section id="about" className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4">
           
           {/* About Me */}
-          <div className="p-6 sm:p-7 bg-[#0c0c0a] border border-amber-900/20 rounded-xl space-y-4 sm:space-y-5 hover:border-amber-800/40 transition">
-            <div className="flex items-center gap-2 text-amber-300">
-              <span className="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
-              <span className="font-cursive text-2xl text-amber-200 leading-none">About Me</span>
+          <div className="p-6 sm:p-7 bg-stone-900/50 border border-stone-700/50 rounded-2xl space-y-4 sm:space-y-5 hover:border-orange-700/50 transition">
+            <div className="flex items-center gap-2 text-orange-300">
+              <span className="w-1.5 h-1.5 rounded-full bg-orange-400"></span>
+              <span className="font-cursive text-2xl text-stone-100 leading-none">About Me</span>
             </div>
             <p className="text-zinc-400 text-xs leading-relaxed font-light">
               Technology enthusiast focusing on network administration, hardware systems, and modern web applications. 3rd Place LKS Provincial Winner.
@@ -224,10 +252,10 @@ export default function Home() {
           </div>
 
           {/* Skills */}
-          <div className="p-6 sm:p-7 bg-[#0c0c0a] border border-amber-900/20 rounded-xl space-y-4 sm:space-y-5 hover:border-amber-800/40 transition">
-            <div className="flex items-center gap-2 text-amber-300">
-              <span className="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
-              <span className="font-cursive text-2xl text-amber-200 leading-none">Skills</span>
+          <div className="p-6 sm:p-7 bg-stone-900/50 border border-stone-700/50 rounded-2xl space-y-4 sm:space-y-5 hover:border-orange-700/50 transition">
+            <div className="flex items-center gap-2 text-orange-300">
+              <span className="w-1.5 h-1.5 rounded-full bg-orange-400"></span>
+              <span className="font-cursive text-2xl text-stone-100 leading-none">Skills</span>
             </div>
             <div className="space-y-3.5 text-xs">
               {[
@@ -251,10 +279,10 @@ export default function Home() {
           </div>
 
           {/* Experience */}
-          <div className="p-6 sm:p-7 bg-[#0c0c0a] border border-amber-900/20 rounded-xl space-y-4 sm:space-y-5 hover:border-amber-800/40 transition">
-            <div className="flex items-center gap-2 text-amber-300">
-              <span className="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
-              <span className="font-cursive text-2xl text-amber-200 leading-none">Experience</span>
+          <div className="p-6 sm:p-7 bg-stone-900/50 border border-stone-700/50 rounded-2xl space-y-4 sm:space-y-5 hover:border-orange-700/50 transition">
+            <div className="flex items-center gap-2 text-orange-300">
+              <span className="w-1.5 h-1.5 rounded-full bg-orange-400"></span>
+              <span className="font-cursive text-2xl text-stone-100 leading-none">Experience</span>
             </div>
             <div className="relative border-l border-amber-900/30 pl-4 space-y-5 text-xs">
               
@@ -279,60 +307,11 @@ export default function Home() {
 
         </section>
 
-        {/* STATS */}
-        <section className="grid grid-cols-2 md:grid-cols-4 gap-4 p-5 sm:p-6 bg-[#0c0c0a] border border-amber-900/20 rounded-xl text-center">
-          <div>
-            <div className="text-xl sm:text-2xl font-light text-amber-200">25+</div>
-            <div className="text-[10px] text-zinc-500 uppercase tracking-widest mt-1 font-light">Hardware Fixed</div>
-          </div>
-          <div>
-            <div className="text-xl sm:text-2xl font-light text-amber-200">3rd</div>
-            <div className="text-[10px] text-zinc-500 uppercase tracking-widest mt-1 font-light">LKS Provincial</div>
-          </div>
-          <div>
-            <div className="text-xl sm:text-2xl font-light text-amber-200">5+</div>
-            <div className="text-[10px] text-zinc-500 uppercase tracking-widest mt-1 font-light">CCTV Setups</div>
-          </div>
-          <div>
-            <div className="text-xl sm:text-2xl font-light text-amber-200">24/7</div>
-            <div className="text-[10px] text-zinc-500 uppercase tracking-widest mt-1 font-light">Support & Maint</div>
-          </div>
-        </section>
-
-        {/* PROJECTS */}
-        <section id="projects" className="space-y-6">
-          <div className="flex justify-between items-center">
-            <div className="flex items-center gap-2 text-amber-300">
-              <span className="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
-              <span className="font-cursive text-2xl sm:text-3xl text-amber-200 leading-none">Services & Projects</span>
-            </div>
-            <a href="#" className="text-xs text-amber-400/80 hover:text-amber-300 font-light tracking-wider">VIEW ALL →</a>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {[
-              { title: 'Hardware Repair', desc: 'Troubleshooting & fixing laptops, smartphones, and camera gear.' },
-              { title: 'CCTV Infrastructure', desc: 'Setup, wiring, and network configuration for security cameras.' },
-              { title: 'Network Config', desc: 'Design and implementation of network for small businesses.' },
-              { title: 'Web Development', desc: 'Responsive website design using Next.js and Tailwind CSS.' }
-            ].map((p, i) => (
-              <div key={i} className="p-5 sm:p-6 bg-[#0c0c0a] border border-amber-900/20 rounded-xl hover:border-amber-500/40 transition space-y-3 group">
-                <div className="text-amber-400 text-base">✦</div>
-                <h3 className="font-normal text-amber-100 text-sm">{p.title}</h3>
-                <p className="text-zinc-400 text-xs leading-relaxed font-light">{p.desc}</p>
-                <div className="pt-2">
-                  <span className="text-[11px] text-amber-400/80 group-hover:translate-x-1 transition-transform inline-block font-light">LEARN MORE →</span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* SAY HELLO (CONTACT ME) */}
+        {/* SAY HELLO */}
         <section id="contact" className="space-y-6 pt-2">
-          <div className="flex items-center gap-2 text-amber-300">
-            <span className="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
-            <span className="font-cursive text-2xl sm:text-3xl text-amber-200 leading-none">Say Hello</span>
+          <div className="flex items-center gap-2 text-orange-300">
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-400"></span>
+            <span className="font-cursive text-2xl sm:text-3xl text-stone-100 leading-none">Say Hello</span>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
@@ -351,12 +330,12 @@ export default function Home() {
             <div className="lg:col-span-8">
               <form className="space-y-3">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  <input type="text" placeholder="Your Name" className="w-full bg-[#0c0c0a] border border-amber-900/30 rounded-lg p-3 text-xs text-amber-100 placeholder:text-zinc-600 focus:outline-none focus:border-amber-500/50 font-light" />
-                  <input type="email" placeholder="Your Email" className="w-full bg-[#0c0c0a] border border-amber-900/30 rounded-lg p-3 text-xs text-amber-100 placeholder:text-zinc-600 focus:outline-none focus:border-amber-500/50 font-light" />
+                  <input type="text" placeholder="Your Name" className="w-full bg-stone-900/60 border border-stone-700/60 rounded-lg p-3 text-xs text-stone-100 placeholder:text-stone-600 focus:outline-none focus:border-orange-500/70 font-light" />
+                  <input type="email" placeholder="Your Email" className="w-full bg-stone-900/60 border border-stone-700/60 rounded-lg p-3 text-xs text-stone-100 placeholder:text-stone-600 focus:outline-none focus:border-orange-500/70 font-light" />
                 </div>
-                <input type="text" placeholder="Subject" className="w-full bg-[#0c0c0a] border border-amber-900/30 rounded-lg p-3 text-xs text-amber-100 placeholder:text-zinc-600 focus:outline-none focus:border-amber-500/50 font-light" />
-                <textarea rows={4} placeholder="Your Message" className="w-full bg-[#0c0c0a] border border-amber-900/30 rounded-lg p-3 text-xs text-amber-100 placeholder:text-zinc-600 focus:outline-none focus:border-amber-500/50 font-light"></textarea>
-                <button type="button" className="px-6 py-2.5 border border-amber-500/40 text-amber-200 rounded-lg text-xs hover:bg-amber-500/10 transition">
+                <input type="text" placeholder="Subject" className="w-full bg-stone-900/60 border border-stone-700/60 rounded-lg p-3 text-xs text-stone-100 placeholder:text-stone-600 focus:outline-none focus:border-orange-500/70 font-light" />
+                <textarea rows={4} placeholder="Your Message" className="w-full bg-stone-900/60 border border-stone-700/60 rounded-lg p-3 text-xs text-stone-100 placeholder:text-stone-600 focus:outline-none focus:border-orange-500/70 font-light"></textarea>
+                <button type="button" className="px-6 py-2.5 bg-orange-400 text-[#171713] rounded-lg text-xs hover:bg-orange-300 transition">
                   <span className="font-cursive text-xl">Send Message</span> →
                 </button>
               </form>
@@ -366,7 +345,7 @@ export default function Home() {
 
         {/* FOOTER */}
         <footer className="text-center py-8 text-[11px] text-zinc-600 border-t border-amber-900/20 font-light tracking-wider">
-          © 2026 Hiruu. All rights reserved.
+          © 2026 Hiruu. Built with curiosity.
         </footer>
 
       </div>
