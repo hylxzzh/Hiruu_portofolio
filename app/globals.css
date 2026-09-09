@@ -64,7 +64,7 @@ body {
 }
 
 .loading-screen--flying {
-  opacity: 0;
+  animation: loadingReveal 1.8s ease-in forwards;
   pointer-events: none;
 }
 
@@ -142,6 +142,11 @@ body {
 
 @keyframes loaderSpin {
   to { transform: rotate(360deg); }
+}
+
+@keyframes loadingReveal {
+  0%, 45% { opacity: 1; }
+  100% { opacity: 0; }
 }
 
 @keyframes loaderHalo {
