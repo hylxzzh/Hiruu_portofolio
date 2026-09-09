@@ -1,9 +1,15 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import Image from 'next/image';
+
+type LoadingPhase = 'spinning' | 'morphing' | 'flying' | 'revealed';
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [loadingPhase, setLoadingPhase] = useState<LoadingPhase>('spinning');
+  const [flyTarget, setFlyTarget] = useState({ x: 0, y: 0 });
+  const sparkRef = useRef<HTMLSpanElement>(null);
 
   // =========================================================================
   // 📸 DAFTAR FOTO PROFIL (LOKASI FILE)
@@ -37,8 +43,48 @@ export default function Home() {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % profileImages.length);
   };
 
+  useEffect(() => {
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) {
+      setLoadingPhase('revealed');
+      return;
+    }
+
+    const morphTimer = window.setTimeout(() => setLoadingPhase('morphing'), 1500);
+    const flyTimer = window.setTimeout(() => {
+      const spark = sparkRef.current?.getBoundingClientRect();
+      if (spark) {
+        setFlyTarget({
+          x: spark.left + spark.width / 2 - window.innerWidth / 2,
+          y: spark.top + spark.height / 2 - window.innerHeight / 2,
+        });
+      }
+      setLoadingPhase('flying');
+    }, 2050);
+    const revealTimer = window.setTimeout(() => setLoadingPhase('revealed'), 2950);
+
+    return () => {
+      window.clearTimeout(morphTimer);
+      window.clearTimeout(flyTimer);
+      window.clearTimeout(revealTimer);
+    };
+  }, []);
+
+  const loaderStyle = {
+    '--fly-x': `${flyTarget.x}px`,
+    '--fly-y': `${flyTarget.y}px`,
+  } as React.CSSProperties;
+
   return (
-    <div className="min-h-screen bg-[#111310] text-stone-300 font-sans selection:bg-orange-500/30 selection:text-orange-100">
+    <div className={`site-shell min-h-screen bg-[#111310] text-stone-300 font-sans selection:bg-orange-500/30 selection:text-orange-100 ${loadingPhase === 'revealed' ? 'is-revealed' : 'is-loading'}`}>
+      {loadingPhase !== 'revealed' && (
+        <div className={`loading-screen loading-screen--${loadingPhase}`} aria-label="Loading Hiruu portfolio" role="status">
+          <div className="loading-screen__halo" />
+          <div className="loading-mark" style={loaderStyle}>
+            <span className="loading-mark__spark" />
+          </div>
+        </div>
+      )}
       
       {/* NAVBAR (Dibuat aman agar tidak menutupi info di bawahnya) */}
       <header className="w-full bg-[#111310]/90 backdrop-blur-xl border-b border-stone-700/40 sticky top-0 z-50">
@@ -46,7 +92,7 @@ export default function Home() {
           
           {/* LOGO BRAND */}
           <a href="#home" className="flex items-center gap-2 group">
-            <span className="w-2 h-2 rounded-full bg-orange-400 shadow-[0_0_12px_rgba(251,146,60,0.8)]"></span>
+            <span ref={sparkRef} className="brand-spark w-3 h-3 bg-amber-400 shadow-[0_0_12px_rgba(251,191,36,0.8)]" aria-hidden="true"></span>
             <span className="font-cursive text-3xl sm:text-4xl text-amber-200 tracking-wide font-normal">
               Hiruu
             </span>
@@ -160,7 +206,7 @@ export default function Home() {
                   rel="noopener noreferrer"
                   className="flex items-center justify-center sm:justify-start gap-2 px-3.5 py-2.5 bg-stone-900/60 border border-stone-700/60 rounded-lg text-stone-400 hover:text-orange-200 hover:border-orange-500/50 transition text-xs font-light w-full sm:w-auto text-center"
                 >
-                  <img src={s.icon} alt={s.name} className="w-3.5 h-3.5 opacity-60 invert shrink-0" />
+                  <Image src={s.icon} alt={s.name} width={14} height={14} className="w-3.5 h-3.5 opacity-60 invert shrink-0" />
                   <span>{s.name}</span>
                 </a>
               ))}
@@ -173,9 +219,11 @@ export default function Home() {
               <div className="absolute inset-0 bg-gradient-to-t from-[#111310] via-transparent to-transparent z-10 opacity-50 pointer-events-none"></div>
 
               {profileImages.length > 0 ? (
-                <img
+                <Image
                   src={profileImages[currentIndex]}
                   alt={`Profile ${currentIndex + 1}`}
+                  fill
+                  sizes="(max-width: 640px) 280px, 320px"
                   className="w-full h-full object-cover transition-all duration-700 ease-in-out filter brightness-[0.95] contrast-[1.05]"
                 />
               ) : (
@@ -240,10 +288,10 @@ export default function Home() {
             </p>
             <div className="space-y-2.5 pt-2 text-xs text-zinc-400 font-light">
               <div className="flex items-center gap-2.5">
-                <span className="text-amber-400/70">📅</span> <span>12 March 2004</span>
+                <span className="text-amber-400/70">📅</span> <span>27 January 2009</span>
               </div>
               <div className="flex items-center gap-2.5">
-                <span className="text-amber-400/70">📍</span> <span>Indonesia</span>
+                <span className="text-amber-400/70">📍</span> <span>Bandung,Indonesia</span>
               </div>
               <div className="flex items-center gap-2.5">
                 <span className="text-amber-400/70">✉️</span> <span className="truncate">hylmanremar@gmail.com</span>
