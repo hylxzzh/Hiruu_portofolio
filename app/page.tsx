@@ -7,7 +7,12 @@ type LoadingPhase = 'spinning' | 'morphing' | 'flying' | 'revealed';
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [loadingPhase, setLoadingPhase] = useState<LoadingPhase>('spinning');
+  const [loadingPhase, setLoadingPhase] = useState<LoadingPhase>(() => {
+    if (typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      return 'revealed';
+    }
+    return 'spinning';
+  });
   const [flyTarget, setFlyTarget] = useState({ x: 0, y: 0 });
   const sparkRef = useRef<HTMLSpanElement>(null);
 
@@ -46,11 +51,10 @@ export default function Home() {
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (prefersReducedMotion) {
-      setLoadingPhase('revealed');
       return;
     }
 
-    const morphTimer = window.setTimeout(() => setLoadingPhase('morphing'), 1500);
+    const morphTimer = window.setTimeout(() => setLoadingPhase('morphing'), 2200);
     const flyTimer = window.setTimeout(() => {
       const spark = sparkRef.current?.getBoundingClientRect();
       if (spark) {
@@ -60,8 +64,8 @@ export default function Home() {
         });
       }
       setLoadingPhase('flying');
-    }, 2050);
-    const revealTimer = window.setTimeout(() => setLoadingPhase('revealed'), 2950);
+    }, 3400);
+    const revealTimer = window.setTimeout(() => setLoadingPhase('revealed'), 5200);
 
     return () => {
       window.clearTimeout(morphTimer);
