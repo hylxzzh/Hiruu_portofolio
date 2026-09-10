@@ -1,17 +1,17 @@
 import type { Metadata } from "next";
-import { Inter, Monsieur_La_Doulaise } from "next/font/google";
+import { Space_Grotesk, DM_Serif_Display } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({
+const space = Space_Grotesk({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-space",
 });
 
 // Font Monsieur La Doulaise
-const cursive = Monsieur_La_Doulaise({
+const serif = DM_Serif_Display({
   weight: "400",
   subsets: ["latin"],
-  variable: "--font-cursive",
+  variable: "--font-serif",
 });
 
 export const metadata: Metadata = {
@@ -27,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.variable} ${cursive.variable} font-sans bg-[#111310] text-stone-300 antialiased`}
+        className={`${space.variable} ${serif.variable} antialiased`}
       >
         {children}
       </body>
