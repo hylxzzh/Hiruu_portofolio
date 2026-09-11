@@ -30,6 +30,15 @@ export default function About() {
             From repairing a laptop to mapping a fiber installation, I like finding the quiet logic underneath the
             chaos.
           </p>
+          <p>
+            On the network side I live inside MikroTik, TCP/IP, and Linux — Debian, Ubuntu, Arch — tracing packets the
+            way a photographer reads light. Competing at the provincial Fiber Optic LKS taught me that precision under
+            pressure is a habit, not a skill.
+          </p>
+          <p>
+            Off the clock I fly drones and shoot documentary frames from the field. Both worlds share the same rule:
+            understand the signal before you trust the noise.
+          </p>
           <div className="mini-stats">
             <div>
               <strong>03+</strong>

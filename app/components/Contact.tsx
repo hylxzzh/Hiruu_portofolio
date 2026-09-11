@@ -66,6 +66,9 @@ export default function Contact() {
               <a href="https://github.com/hylxzzh/" target="_blank" rel="noreferrer">
                 GitHub
               </a>
+              <a href="https://www.instagram.com/hylman_remar/" target="_blank" rel="noreferrer">
+                Instagram
+              </a>
             </div>
           </div>
 

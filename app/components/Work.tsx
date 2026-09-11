@@ -85,7 +85,7 @@ export default function Work() {
 
       <div className="project-list">
         {visibleProjects.map((project, index) => (
-          <article className="project-row reveal-on-scroll" key={project.id}>
+          <article className="project-row" key={project.id}>
             <span className="project-number">0{index + 1}</span>
             <div className="project-main">
               <p>

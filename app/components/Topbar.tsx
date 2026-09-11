@@ -1,5 +1,7 @@
 'use client';
 
+import Clock from './Clock';
+
 type TopbarProps = {
   isMenuOpen: boolean;
   onToggleMenu: () => void;
@@ -25,6 +27,7 @@ export default function Topbar({ isMenuOpen, onToggleMenu, onOpenPalette, onNavi
         <button onClick={() => onNavigate('contact')}>Contact</button>
       </nav>
       <div className="topbar-actions">
+        <Clock />
         <button className="palette-trigger" onClick={onOpenPalette} aria-label="Open command menu">
           <span>Search</span>
           <kbd>Ctrl K</kbd>

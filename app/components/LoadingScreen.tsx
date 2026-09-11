@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import SpiderLily from './SpiderLily';
+import SpiderLilyPixel from './SpiderLilyPixel';
 
 type Petal = {
   left: number;
@@ -59,13 +60,13 @@ export default function LoadingScreen({ onEnter }: { onEnter: () => void }) {
 
   return (
     <div className={`loading-screen loading-screen--${phase}`} role="status" aria-label="Welcome to the Hiruu portfolio">
-      <div className="loading-screen__ring" />
-      <div className="loading-screen__core">
-        <span />
-      </div>
+      <button type="button" className="loading-lily" onClick={handleStart} aria-label="Enter the Hiruu portfolio">
+        <SpiderLilyPixel />
+      </button>
       <div className="loading-screen__text">
         <strong>HIRUU</strong>
         <small>Signal is clear.</small>
+        <span className="loading-screen__desc">IT &amp; Network Engineer — Bandung, Indonesia</span>
       </div>
 
       {showRain && (
@@ -80,10 +81,7 @@ export default function LoadingScreen({ onEnter }: { onEnter: () => void }) {
 
       {showGate && (
         <div className="loading-screen__gate">
-          <button type="button" className="button button--solid" onClick={handleStart}>
-            Start <span>↗</span>
-          </button>
-          <small>click to bloom</small>
+          <small>tap the flower</small>
         </div>
       )}
     </div>
