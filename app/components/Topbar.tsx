@@ -18,12 +18,8 @@ export default function Topbar({ isMenuOpen, onToggleMenu, onOpenPalette, onNavi
       </a>
       <nav className={`nav-links ${isMenuOpen ? 'nav-links--open' : ''}`} aria-label="Main navigation">
         <button onClick={() => onNavigate('about')}>About</button>
-        <button onClick={() => onNavigate('skills')}>
-          Skills <span>03</span>
-        </button>
-        <button onClick={() => onNavigate('work')}>
-          Work <span>05</span>
-        </button>
+        <button onClick={() => onNavigate('skills')}>Skills</button>
+        <button onClick={() => onNavigate('work')}>Work</button>
         <button onClick={() => onNavigate('contact')}>Contact</button>
       </nav>
       <div className="topbar-actions">

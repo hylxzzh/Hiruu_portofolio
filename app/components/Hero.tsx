@@ -10,7 +10,7 @@ export default function Hero({ onNavigate }: { onNavigate: (id: string) => void 
           <span className="status-dot" /> Available for thoughtful work <span className="eyebrow-year">/ 2026</span>
         </p>
         <h1>
-          Human systems.
+          Connect. Code. Create.
           <br />
           <em>Clear signals.</em>
         </h1>

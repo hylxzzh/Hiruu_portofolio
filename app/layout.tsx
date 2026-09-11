@@ -48,7 +48,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Hiruu — IT & Network Engineer",
     description:
-      "Human systems. Clear signals. Portfolio of an IT & Network Engineer from Bandung, Indonesia.",
+      "Connect. Code. Create. Clear signals. Portfolio of an IT & Network Engineer from Bandung, Indonesia.",
     url: SITE_URL,
     siteName: "Hiruu",
     type: "website",
@@ -66,7 +66,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Hiruu — IT & Network Engineer",
     description:
-      "Human systems. Clear signals. Portfolio of an IT & Network Engineer from Bandung, Indonesia.",
+      "Connect. Code. Create. Clear signals. Portfolio of an IT & Network Engineer from Bandung, Indonesia.",
     images: ["/foto_profile/profile1.jpg"],
   },
   robots: {

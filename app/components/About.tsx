@@ -17,9 +17,9 @@ export default function About() {
       </div>
       <div className="about-grid">
         <h2>
-          Technical hands,
+          LEARN. BUILD. SOLVE.
           <br />
-          <em>human point of view.</em>
+          <em>REPEAT.</em>
         </h2>
         <div className="about-copy">
           <p>
@@ -72,6 +72,8 @@ export default function About() {
           </figure>
         ))}
       </div>
+
+      <p className="about-quote">&ldquo;I Don&apos;t Fear Broken Systems. I Understand Them. I Fix Them.&rdquo;</p>
     </section>
   );
 }
