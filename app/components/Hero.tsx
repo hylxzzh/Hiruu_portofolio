@@ -9,11 +9,7 @@ export default function Hero({ onNavigate }: { onNavigate: (id: string) => void 
         <p className="eyebrow">
           <span className="status-dot" /> Available for thoughtful work <span className="eyebrow-year">/ 2026</span>
         </p>
-        <h1>
-          Connect. Code. Create.
-          <br />
-          <em>Clear signals.</em>
-        </h1>
+        <h1>Connect. Code. Create.</h1>
         <p className="hero-intro">
           I&apos;m Hylman, an IT and network engineer who turns tangled infrastructure into dependable, understandable
           experiences.
