@@ -1,4 +1,4 @@
-import SpiderLily from './SpiderLily';
+import SpiderLilyPixel from './SpiderLilyPixel';
 
 type SkillGroup = {
   id: string;
@@ -43,7 +43,7 @@ export default function Skills() {
   return (
     <section id="skills" className="skills-section content-section reveal-on-scroll reveal-from-right">
       <div className="section-label">
-        <SpiderLily className="lily-mark" />
+        <SpiderLilyPixel className="lily-mark" />
         <span>03</span>
         <span>Skill signals</span>
       </div>

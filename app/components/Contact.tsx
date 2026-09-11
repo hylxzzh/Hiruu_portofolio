@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import SpiderLily from './SpiderLily';
+import SpiderLilyPixel from './SpiderLilyPixel';
 
 const FORMSPREE_ENDPOINT = 'https://formspree.io/f/YOUR_FORM_ID';
 
@@ -43,7 +43,7 @@ export default function Contact() {
     <section id="contact" className="contact-section content-section reveal-on-scroll">
       <div className="contact-panel">
         <div className="contact-meta">
-          <SpiderLily className="lily-mark" />
+          <SpiderLilyPixel className="lily-mark" />
           <span>08</span>
           <span>Open channel</span>
         </div>

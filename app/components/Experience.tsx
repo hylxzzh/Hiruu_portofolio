@@ -1,4 +1,4 @@
-import SpiderLily from './SpiderLily';
+import SpiderLilyPixel from './SpiderLilyPixel';
 
 type Experience = {
   number: string;
@@ -28,7 +28,7 @@ export default function Experience() {
   return (
     <section id="experience" className="experience-section content-section reveal-on-scroll reveal-from-left">
       <div className="section-label">
-        <SpiderLily className="lily-mark" />
+        <SpiderLilyPixel className="lily-mark" />
         <span>04</span>
         <span>Field experience</span>
       </div>

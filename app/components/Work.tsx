@@ -1,7 +1,7 @@
 'use client';
 
 import { useMemo, useState } from 'react';
-import SpiderLily from './SpiderLily';
+import SpiderLilyPixel from './SpiderLilyPixel';
 
 type Category = 'Network' | 'Web' | 'Hardware';
 type Project = {
@@ -58,7 +58,7 @@ export default function Work() {
     <section id="work" className="work-section content-section reveal-on-scroll reveal-from-right">
       <div className="section-heading">
         <div className="section-label">
-          <SpiderLily className="lily-mark" />
+          <SpiderLilyPixel className="lily-mark" />
           <span>05</span>
           <span>Selected signals</span>
         </div>

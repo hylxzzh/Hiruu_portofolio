@@ -1,4 +1,4 @@
-import SpiderLily from './SpiderLily';
+import SpiderLilyPixel from './SpiderLilyPixel';
 
 const tags = ['Aerial · drone', 'Event coverage', 'Studio', 'Landscape', 'Portrait', 'Behind the scenes'];
 
@@ -17,7 +17,7 @@ export default function Gallery() {
     <section id="gallery" className="gallery-section content-section reveal-on-scroll reveal-from-left">
       <div className="section-heading">
         <div className="section-label">
-          <SpiderLily className="lily-mark" />
+          <SpiderLilyPixel className="lily-mark" />
           <span>06</span>
           <span>Lens work</span>
         </div>

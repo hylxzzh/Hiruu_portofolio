@@ -1,4 +1,4 @@
-import SpiderLily from './SpiderLily';
+import SpiderLilyPixel from './SpiderLilyPixel';
 
 type Testimonial = {
   quote: string;
@@ -32,7 +32,7 @@ export default function Testimonial() {
     <section id="testimonial" className="testimonial-section content-section reveal-on-scroll reveal-from-right">
       <div className="section-heading">
         <div className="section-label">
-          <SpiderLily className="lily-mark" />
+          <SpiderLilyPixel className="lily-mark" />
           <span>07</span>
           <span>Signal received</span>
         </div>

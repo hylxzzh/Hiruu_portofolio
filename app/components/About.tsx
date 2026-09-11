@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import SpiderLily from './SpiderLily';
+import SpiderLilyPixel from './SpiderLilyPixel';
 
 const photos = [
   { src: '/foto_profile/profile1.jpg', alt: 'Hylman portrait' },
@@ -11,7 +11,7 @@ export default function About() {
   return (
     <section id="about" className="about-section content-section reveal-on-scroll reveal-from-left">
       <div className="section-label">
-        <SpiderLily className="lily-mark" />
+        <SpiderLilyPixel className="lily-mark" />
         <span>02</span>
         <span>About the operator</span>
       </div>
