@@ -1,6 +1,6 @@
 'use client';
 
-import SpiderLilySide from './SpiderLilySide';
+import SpiderLilyPixel from './SpiderLilyPixel';
 
 export default function Hero({ onNavigate }: { onNavigate: (id: string) => void }) {
   return (
@@ -30,7 +30,7 @@ export default function Hero({ onNavigate }: { onNavigate: (id: string) => void 
 
       <div className="hero-aside reveal-on-scroll reveal-from-right reveal-delay-1">
         <div className="bloom">
-          <SpiderLilySide />
+          <SpiderLilyPixel />
         </div>
         <div className="aside-note">
           <span>01</span>
