@@ -10,14 +10,15 @@ type SpiderLilyPixelProps = {
   style?: React.CSSProperties;
 };
 
-const CX = 40;
-const CY = 40;
+const VIEW = 96;
+const CX = VIEW / 2;
+const CY = VIEW / 2;
 const PETALS = 6;
-const PETAL_INNER = 11;
-const PETAL_OUTER = 36;
 const STAMEN_COUNT = 6;
-const STAMEN_INNER = 13;
-const STAMEN_OUTER = 41;
+const PETAL_INNER = 9;
+const PETAL_MID = 34;
+const STAMEN_INNER = 14;
+const STAMEN_OUTER = 44;
 
 const BASE = '#8F0000';
 const BODY = '#FF1A1A';
@@ -36,8 +37,8 @@ function colorFor(t: number) {
   return TIP;
 }
 
-function px(x: number, y: number, r: number, color: string): Dot {
-  const s = Math.max(1, Math.round(r * 2));
+function px(x: number, y: number, size: number, color: string): Dot {
+  const s = Math.max(1, Math.round(size));
   return {
     x: Math.round(x) - Math.floor((s - 1) / 2),
     y: Math.round(y) - Math.floor((s - 1) / 2),
@@ -52,61 +53,64 @@ function buildPetal(baseAngle: number): Dot[] {
 
   for (let i = 0; i <= segs; i++) {
     const t = i / segs;
-    const r = PETAL_INNER + t * (PETAL_OUTER - PETAL_INNER);
-    const bend = Math.sin(t * Math.PI * 1.6) * 16;
-    const wave = Math.sin(t * Math.PI * 6) * 2.2 * t;
+    const r = PETAL_INNER + t * (PETAL_MID - PETAL_INNER);
+    const bend = t * t * 42;
+    const wave = Math.sin(t * Math.PI * 8) * 1.6 * t;
     const ang = baseAngle + bend + wave;
     const p = pt(ang, r);
     const perp = rad(ang) + Math.PI / 2;
-    const halfW = 1.3 + 2.2 * (1 - Math.abs(2 * t - 1));
     const color = colorFor(t);
 
-    dots.push(px(p.x, p.y, 1.05, color));
-    for (const s of [-1, 1]) {
-      dots.push(
-        px(
-          p.x + Math.cos(perp) * halfW * s,
-          p.y + Math.sin(perp) * halfW * s,
-          0.8 + 0.25 * (1 - t),
-          color,
-        ),
-      );
+    dots.push(px(p.x, p.y, 1, color));
+    if (i % 3 === 1) {
+      dots.push(px(p.x + Math.cos(perp) * 1.4, p.y + Math.sin(perp) * 1.4, 1, color));
+    }
+    if (i % 3 === 2) {
+      dots.push(px(p.x - Math.cos(perp) * 1.4, p.y - Math.sin(perp) * 1.4, 1, color));
     }
   }
 
-  const tipAngle = baseAngle + Math.sin(Math.PI * 1.6) * 16 + 26;
-  const tip = pt(tipAngle, PETAL_OUTER + 2);
-  dots.push(px(tip.x, tip.y, 0.75, TIP));
-  const tipSide = pt(tipAngle + 20, PETAL_OUTER + 4.5);
-  dots.push(px(tipSide.x, tipSide.y, 0.6, TIP));
+  const claw = [
+    { a: 60, r: 38 },
+    { a: 82, r: 34 },
+    { a: 98, r: 29 },
+    { a: 110, r: 25 },
+    { a: 116, r: 21 },
+  ];
+  for (const c of claw) {
+    const p = pt(baseAngle + c.a, c.r);
+    dots.push(px(p.x, p.y, 1, TIP));
+  }
+  const hook = pt(baseAngle + 118, 18);
+  dots.push(px(hook.x, hook.y, 2, TIP));
 
   return dots;
 }
 
 function buildStamen(baseAngle: number): Dot[] {
   const dots: Dot[] = [];
-  const segs = 19;
+  const segs = 22;
 
   for (let i = 0; i <= segs; i++) {
     const t = i / segs;
     const r = STAMEN_INNER + t * (STAMEN_OUTER - STAMEN_INNER);
-    const wob = Math.sin(t * Math.PI * 3) * 2.5;
+    const wob = Math.sin(t * Math.PI * 3) * 1.6;
     const p = pt(baseAngle + wob, r);
-    dots.push(px(p.x, p.y, t < 0.9 ? 0.55 : 0.6, BODY));
+    dots.push(px(p.x, p.y, 1, BODY));
   }
 
-  const anther = pt(baseAngle, STAMEN_OUTER + 1.2);
-  dots.push(px(anther.x, anther.y, 1.35, TIP));
+  const anther = pt(baseAngle, STAMEN_OUTER + 2);
+  dots.push(px(anther.x, anther.y, 2, TIP));
   return dots;
 }
 
 function buildCore(): Dot[] {
   const dots: Dot[] = [];
-  for (let i = 0; i < 10; i++) {
-    const a = (360 / 10) * i;
-    const r = 3.2 + (i % 3) * 1.4;
+  for (let i = 0; i < 8; i++) {
+    const a = (360 / 8) * i;
+    const r = 2.6 + (i % 3) * 1.5;
     const p = pt(a, r);
-    dots.push(px(p.x, p.y, i % 2 ? 1.0 : 0.75, i % 3 === 0 ? TIP : BODY));
+    dots.push(px(p.x, p.y, 1, i % 3 === 0 ? TIP : BODY));
   }
   return dots;
 }
@@ -126,7 +130,7 @@ export default function SpiderLilyPixel({ className = '', style }: SpiderLilyPix
     <svg
       className={className}
       style={style}
-      viewBox="0 0 80 80"
+      viewBox={`0 0 ${VIEW} ${VIEW}`}
       fill="none"
       aria-hidden="true"
       shapeRendering="crispEdges"
