@@ -1,7 +1,7 @@
 type Dot = {
   x: number;
   y: number;
-  r: number;
+  s: number;
   color: string;
 };
 
@@ -36,6 +36,16 @@ function colorFor(t: number) {
   return TIP;
 }
 
+function px(x: number, y: number, r: number, color: string): Dot {
+  const s = Math.max(1, Math.round(r * 2));
+  return {
+    x: Math.round(x) - Math.floor((s - 1) / 2),
+    y: Math.round(y) - Math.floor((s - 1) / 2),
+    s,
+    color,
+  };
+}
+
 function buildPetal(baseAngle: number): Dot[] {
   const dots: Dot[] = [];
   const segs = 18;
@@ -51,22 +61,24 @@ function buildPetal(baseAngle: number): Dot[] {
     const halfW = 1.3 + 2.2 * (1 - Math.abs(2 * t - 1));
     const color = colorFor(t);
 
-    dots.push({ x: p.x, y: p.y, r: 1.05, color });
+    dots.push(px(p.x, p.y, 1.05, color));
     for (const s of [-1, 1]) {
-      dots.push({
-        x: p.x + Math.cos(perp) * halfW * s,
-        y: p.y + Math.sin(perp) * halfW * s,
-        r: 0.8 + 0.25 * (1 - t),
-        color,
-      });
+      dots.push(
+        px(
+          p.x + Math.cos(perp) * halfW * s,
+          p.y + Math.sin(perp) * halfW * s,
+          0.8 + 0.25 * (1 - t),
+          color,
+        ),
+      );
     }
   }
 
   const tipAngle = baseAngle + Math.sin(Math.PI * 1.6) * 16 + 26;
   const tip = pt(tipAngle, PETAL_OUTER + 2);
-  dots.push({ x: tip.x, y: tip.y, r: 0.75, color: TIP });
+  dots.push(px(tip.x, tip.y, 0.75, TIP));
   const tipSide = pt(tipAngle + 20, PETAL_OUTER + 4.5);
-  dots.push({ x: tipSide.x, y: tipSide.y, r: 0.6, color: TIP });
+  dots.push(px(tipSide.x, tipSide.y, 0.6, TIP));
 
   return dots;
 }
@@ -80,11 +92,11 @@ function buildStamen(baseAngle: number): Dot[] {
     const r = STAMEN_INNER + t * (STAMEN_OUTER - STAMEN_INNER);
     const wob = Math.sin(t * Math.PI * 3) * 2.5;
     const p = pt(baseAngle + wob, r);
-    dots.push({ x: p.x, y: p.y, r: t < 0.9 ? 0.55 : 0.6, color: BODY });
+    dots.push(px(p.x, p.y, t < 0.9 ? 0.55 : 0.6, BODY));
   }
 
   const anther = pt(baseAngle, STAMEN_OUTER + 1.2);
-  dots.push({ x: anther.x, y: anther.y, r: 1.35, color: TIP });
+  dots.push(px(anther.x, anther.y, 1.35, TIP));
   return dots;
 }
 
@@ -94,7 +106,7 @@ function buildCore(): Dot[] {
     const a = (360 / 10) * i;
     const r = 3.2 + (i % 3) * 1.4;
     const p = pt(a, r);
-    dots.push({ x: p.x, y: p.y, r: i % 2 ? 1.0 : 0.75, color: i % 3 === 0 ? TIP : BODY });
+    dots.push(px(p.x, p.y, i % 2 ? 1.0 : 0.75, i % 3 === 0 ? TIP : BODY));
   }
   return dots;
 }
@@ -111,9 +123,16 @@ export default function SpiderLilyPixel({ className = '', style }: SpiderLilyPix
   dots.push(...buildCore());
 
   return (
-    <svg className={className} style={style} viewBox="0 0 80 80" fill="none" aria-hidden="true">
+    <svg
+      className={className}
+      style={style}
+      viewBox="0 0 80 80"
+      fill="none"
+      aria-hidden="true"
+      shapeRendering="crispEdges"
+    >
       {dots.map((dot, index) => (
-        <circle key={index} cx={dot.x} cy={dot.y} r={dot.r} fill={dot.color} />
+        <rect key={index} x={dot.x} y={dot.y} width={dot.s} height={dot.s} fill={dot.color} />
       ))}
     </svg>
   );
