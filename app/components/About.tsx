@@ -1,4 +1,11 @@
+import Image from 'next/image';
 import SpiderLily from './SpiderLily';
+
+const photos = [
+  { src: '/foto_profile/profile1.jpg', alt: 'Hylman portrait' },
+  { src: '/foto_profile/profile2.jpg', alt: 'Hylman field portrait' },
+  { src: '/foto_profile/profile3.jpg', alt: 'Hylman casual portrait' },
+];
 
 export default function About() {
   return (
@@ -38,6 +45,23 @@ export default function About() {
             </div>
           </div>
         </div>
+      </div>
+
+      <div className="about-gallery">
+        {photos.map((photo, index) => (
+          <figure className="about-photo" key={photo.src}>
+            <Image
+              src={photo.src}
+              alt={photo.alt}
+              fill
+              sizes="(max-width: 760px) 90vw, (max-width: 960px) 46vw, 30vw"
+              className="about-photo__img"
+            />
+            <figcaption className="about-photo__index">
+              0{index + 1} / 0{photos.length}
+            </figcaption>
+          </figure>
+        ))}
       </div>
     </section>
   );

@@ -11,7 +11,7 @@ export default function Topbar({ isMenuOpen, onToggleMenu, onOpenPalette, onNavi
   return (
     <header className="topbar">
       <a className="brand" href="#home" aria-label="Hiruu home">
-        <span className="brand-mark">+</span>
+        <span className="brand-mark" aria-hidden="true" />
         <span>HIRUU</span>
       </a>
       <nav className={`nav-links ${isMenuOpen ? 'nav-links--open' : ''}`} aria-label="Main navigation">

@@ -6,6 +6,7 @@ import DecorPetals from '@/app/components/DecorPetals';
 import Topbar from '@/app/components/Topbar';
 import Hero from '@/app/components/Hero';
 import SignalStrip from '@/app/components/SignalStrip';
+import Marquee from '@/app/components/Marquee';
 import About from '@/app/components/About';
 import Skills from '@/app/components/Skills';
 import Experience from '@/app/components/Experience';
@@ -80,6 +81,7 @@ export default function Home() {
       <div className="page-wrap">
         <Hero onNavigate={scrollTo} />
         <SignalStrip />
+        <Marquee />
         <About />
         <Skills />
         <Experience />

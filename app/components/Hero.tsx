@@ -1,37 +1,8 @@
 'use client';
 
-import Image from 'next/image';
-import { useEffect, useRef, useState } from 'react';
-
-const profileImages = ['/foto_profile/profile1.jpg', '/foto_profile/profile2.jpg', '/foto_profile/profile3.jpg'];
+import SpiderLilyBloom from './SpiderLilyBloom';
 
 export default function Hero({ onNavigate }: { onNavigate: (id: string) => void }) {
-  const [currentImage, setCurrentImage] = useState(0);
-  const frameRef = useRef<HTMLDivElement | null>(null);
-
-  useEffect(() => {
-    const timer = window.setInterval(() => setCurrentImage((image) => (image + 1) % profileImages.length), 4500);
-    return () => window.clearInterval(timer);
-  }, []);
-
-  useEffect(() => {
-    let raf = 0;
-    const onScroll = () => {
-      cancelAnimationFrame(raf);
-      raf = requestAnimationFrame(() => {
-        const frame = frameRef.current;
-        if (frame) {
-          frame.style.transform = `translateY(${window.scrollY * 0.12}px) rotate(2.5deg)`;
-        }
-      });
-    };
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => {
-      window.removeEventListener('scroll', onScroll);
-      cancelAnimationFrame(raf);
-    };
-  }, []);
-
   return (
     <section id="home" className="hero section-grid">
       <div className="hero-copy reveal-on-scroll">
@@ -58,27 +29,7 @@ export default function Hero({ onNavigate }: { onNavigate: (id: string) => void 
       </div>
 
       <div className="hero-aside reveal-on-scroll reveal-from-right reveal-delay-1">
-        <div className="portrait-frame" ref={frameRef}>
-          <Image
-            src={profileImages[currentImage]}
-            alt="Hylman profile"
-            fill
-            priority
-            sizes="(max-width: 800px) 90vw, 36vw"
-            className="portrait-image"
-          />
-          <div className="portrait-overlay">
-            <span>01 / 03</span>
-            <span>Bandung, ID</span>
-          </div>
-          <button
-            className="portrait-next"
-            onClick={() => setCurrentImage((image) => (image + 1) % profileImages.length)}
-            aria-label="Next profile image"
-          >
-            ↗
-          </button>
-        </div>
+        <SpiderLilyBloom />
         <div className="aside-note">
           <span>01</span>
           <p>

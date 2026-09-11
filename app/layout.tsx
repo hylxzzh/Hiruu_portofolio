@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Space_Grotesk, DM_Serif_Display } from "next/font/google";
+import { Space_Grotesk, DM_Serif_Display, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 
 const space = Space_Grotesk({
@@ -11,6 +11,12 @@ const serif = DM_Serif_Display({
   weight: "400",
   subsets: ["latin"],
   variable: "--font-serif",
+});
+
+const mono = IBM_Plex_Mono({
+  weight: ["400", "500", "600", "700"],
+  subsets: ["latin"],
+  variable: "--font-mono",
 });
 
 const SITE_URL = "https://hiruu.vercel.app";
@@ -88,7 +94,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${space.variable} ${serif.variable} antialiased`}>
+      <body className={`${space.variable} ${serif.variable} ${mono.variable} antialiased`}>
         {children}
       </body>
     </html>
