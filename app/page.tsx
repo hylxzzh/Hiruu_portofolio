@@ -12,7 +12,6 @@ import Skills from '@/app/components/Skills';
 import Experience from '@/app/components/Experience';
 import Work from '@/app/components/Work';
 import Gallery from '@/app/components/Gallery';
-import Testimonial from '@/app/components/Testimonial';
 import Contact from '@/app/components/Contact';
 import Footer from '@/app/components/Footer';
 import CommandPalette from '@/app/components/CommandPalette';
@@ -87,7 +86,6 @@ export default function Home() {
         <Experience />
         <Work />
         <Gallery />
-        <Testimonial />
         <Contact />
         <Footer />
       </div>

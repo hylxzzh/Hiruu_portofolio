@@ -15,10 +15,10 @@ export default function Hero({ onNavigate }: { onNavigate: (id: string) => void 
           experiences.
         </p>
         <div className="hero-actions">
-          <button className="button button--solid" onClick={() => onNavigate('work')}>
+          <button type="button" className="button button--solid" onClick={() => onNavigate('work')}>
             Explore selected work <span>↘</span>
           </button>
-          <button className="text-link" onClick={() => onNavigate('contact')}>
+          <button type="button" className="text-link" onClick={() => onNavigate('contact')}>
             Start a conversation <span>↗</span>
           </button>
         </div>

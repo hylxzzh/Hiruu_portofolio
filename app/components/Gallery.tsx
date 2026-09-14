@@ -36,7 +36,6 @@ export default function Gallery() {
           </div>
         ))}
       </div>
-      <p className="gallery-note">Placeholder grid — real photographs coming soon.</p>
     </section>
   );
 }

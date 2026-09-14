@@ -44,7 +44,7 @@ export default function Contact() {
       <div className="contact-panel">
         <div className="contact-meta">
           <SpiderLilyPixel className="lily-mark" />
-          <span>08</span>
+          <span>07</span>
           <span>Open channel</span>
         </div>
 

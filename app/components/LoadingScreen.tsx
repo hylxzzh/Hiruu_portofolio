@@ -59,7 +59,7 @@ export default function LoadingScreen({ onEnter }: { onEnter: () => void }) {
   const showRain = phase !== 'idle';
 
   return (
-    <div className={`loading-screen loading-screen--${phase}`} role="status" aria-label="Welcome to the Hiruu portfolio">
+    <div className={`loading-screen loading-screen--${phase}`} role="region" aria-label="Welcome to the Hiruu portfolio">
       <button type="button" className="loading-lily" onClick={handleStart} aria-label="Enter the Hiruu portfolio">
         <SpiderLilyPixel />
       </button>

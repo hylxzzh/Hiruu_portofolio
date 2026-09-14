@@ -17,18 +17,18 @@ export default function Topbar({ isMenuOpen, onToggleMenu, onOpenPalette, onNavi
         <span>HIRUU</span>
       </a>
       <nav className={`nav-links ${isMenuOpen ? 'nav-links--open' : ''}`} aria-label="Main navigation">
-        <button onClick={() => onNavigate('about')}>About</button>
-        <button onClick={() => onNavigate('skills')}>Skills</button>
-        <button onClick={() => onNavigate('work')}>Work</button>
-        <button onClick={() => onNavigate('contact')}>Contact</button>
+        <button type="button" onClick={() => onNavigate('about')}>About</button>
+        <button type="button" onClick={() => onNavigate('skills')}>Skills</button>
+        <button type="button" onClick={() => onNavigate('work')}>Work</button>
+        <button type="button" onClick={() => onNavigate('contact')}>Contact</button>
       </nav>
       <div className="topbar-actions">
         <Clock />
-        <button className="palette-trigger" onClick={onOpenPalette} aria-label="Open command menu">
+        <button type="button" className="palette-trigger" onClick={onOpenPalette} aria-label="Open command menu">
           <span>Search</span>
           <kbd>Ctrl K</kbd>
         </button>
-        <button className="menu-trigger" onClick={onToggleMenu} aria-label="Toggle navigation">
+        <button type="button" className="menu-trigger" onClick={onToggleMenu} aria-label="Toggle navigation">
           {isMenuOpen ? 'Close' : 'Menu'}
         </button>
       </div>

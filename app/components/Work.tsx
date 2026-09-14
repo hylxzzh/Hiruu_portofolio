@@ -54,6 +54,18 @@ export default function Work() {
     [activeFilter],
   );
 
+  const handleTabKeyDown = (event: React.KeyboardEvent) => {
+    const current = filters.indexOf(activeFilter);
+    let next = current;
+    if (event.key === 'ArrowRight') next = (current + 1) % filters.length;
+    else if (event.key === 'ArrowLeft') next = (current - 1 + filters.length) % filters.length;
+    else if (event.key === 'Home') next = 0;
+    else if (event.key === 'End') next = filters.length - 1;
+    else return;
+    event.preventDefault();
+    setActiveFilter(filters[next]);
+  };
+
   return (
     <section id="work" className="work-section content-section reveal-on-scroll reveal-from-right">
       <div className="section-heading">
@@ -69,12 +81,16 @@ export default function Work() {
         </p>
       </div>
 
-      <div className="filter-row" role="tablist" aria-label="Filter projects">
+      <div className="filter-row" role="tablist" aria-label="Filter projects" onKeyDown={handleTabKeyDown}>
         {filters.map((filter) => (
           <button
             key={filter}
+            type="button"
+            id={`filter-tab-${filter}`}
             role="tab"
             aria-selected={activeFilter === filter}
+            aria-controls="work-panel"
+            tabIndex={activeFilter === filter ? 0 : -1}
             className={activeFilter === filter ? 'filter-active' : ''}
             onClick={() => setActiveFilter(filter)}
           >
@@ -83,7 +99,7 @@ export default function Work() {
         ))}
       </div>
 
-      <div className="project-list">
+      <div className="project-list" id="work-panel" role="tabpanel" aria-labelledby={`filter-tab-${activeFilter}`}>
         {visibleProjects.map((project, index) => (
           <article className="project-row" key={project.id}>
             <span className="project-number">0{index + 1}</span>

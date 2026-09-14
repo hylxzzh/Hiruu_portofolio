@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Space_Grotesk, DM_Serif_Display, IBM_Plex_Mono } from "next/font/google";
+import { SITE_URL } from "@/lib/site";
 import "./globals.css";
 
 const space = Space_Grotesk({
@@ -18,8 +19,6 @@ const mono = IBM_Plex_Mono({
   subsets: ["latin"],
   variable: "--font-mono",
 });
-
-const SITE_URL = "https://hiruu.vercel.app";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -56,8 +55,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: "/foto_profile/profile1.jpg",
-        width: 1200,
-        height: 1500,
+        width: 1080,
+        height: 1440,
         alt: "Hylman — Hiruu portrait",
       },
     ],
@@ -93,8 +92,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="id">
       <body className={`${space.variable} ${serif.variable} ${mono.variable} antialiased`}>
+        <noscript>
+          <style>{`.reveal-on-scroll { opacity: 1; transform: none; }`}</style>
+        </noscript>
         {children}
       </body>
     </html>

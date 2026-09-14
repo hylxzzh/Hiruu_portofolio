@@ -1,3 +1,7 @@
+'use client';
+
+import { useState } from 'react';
+
 const items = [
   { id: 'home', num: '01', label: 'Home' },
   { id: 'about', num: '02', label: 'About' },
@@ -5,8 +9,7 @@ const items = [
   { id: 'experience', num: '04', label: 'Experience' },
   { id: 'work', num: '05', label: 'Selected work' },
   { id: 'gallery', num: '06', label: 'Gallery' },
-  { id: 'testimonial', num: '07', label: 'Testimonials' },
-  { id: 'contact', num: '08', label: 'Contact' },
+  { id: 'contact', num: '07', label: 'Contact' },
 ];
 
 type CommandPaletteProps = {
@@ -15,6 +18,10 @@ type CommandPaletteProps = {
 };
 
 export default function CommandPalette({ onClose, onNavigate }: CommandPaletteProps) {
+  const [query, setQuery] = useState('');
+
+  const filteredItems = items.filter((item) => `${item.label} ${item.id}`.toLowerCase().includes(query.toLowerCase()));
+
   return (
     <div className="modal-backdrop palette-backdrop" onClick={onClose}>
       <div
@@ -29,15 +36,18 @@ export default function CommandPalette({ onClose, onNavigate }: CommandPalettePr
           <input
             autoFocus
             placeholder="Where should we go?"
+            value={query}
+            onChange={(event) => setQuery(event.target.value)}
             onKeyDown={(event) => event.key === 'Escape' && onClose()}
           />
         </div>
-        {items.map((item) => (
-          <button key={item.id} onClick={() => onNavigate(item.id)}>
+        {filteredItems.map((item) => (
+          <button key={item.id} type="button" onClick={() => onNavigate(item.id)}>
             <span>{item.num}</span>
             {item.label} <kbd>↵</kbd>
           </button>
         ))}
+        {filteredItems.length === 0 && <p className="palette-empty">No channel found.</p>}
       </div>
     </div>
   );

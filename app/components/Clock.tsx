@@ -21,7 +21,7 @@ export default function Clock() {
   const second = pad(now.getSeconds());
 
   return (
-    <span className="clock" aria-label={`Local time ${hour}:${minute}:${second}`}>
+    <span className="clock" aria-label={`Local time ${hour}:${minute}`}>
       <span className="clock__dot" aria-hidden="true" />
       {hour}:{minute}:{second}
     </span>
