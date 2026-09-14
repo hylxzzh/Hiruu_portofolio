@@ -9,7 +9,8 @@ const items = [
   { id: 'experience', num: '04', label: 'Experience' },
   { id: 'work', num: '05', label: 'Selected work' },
   { id: 'gallery', num: '06', label: 'Gallery' },
-  { id: 'contact', num: '07', label: 'Contact' },
+  { id: 'testimonial', num: '07', label: 'Testimonials' },
+  { id: 'contact', num: '08', label: 'Contact' },
 ];
 
 type CommandPaletteProps = {
